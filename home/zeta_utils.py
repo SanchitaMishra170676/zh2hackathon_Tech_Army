@@ -3,7 +3,6 @@ from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
 import requests, json
 
 def issue_bundle(user):
-    url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/applications/newIndividual'
     url = f'{base_url}/ifi/140793/bundles/{bundleId}/issueBundle'
     data = {
         "accountHolderID": user.AccountHolderId,
@@ -15,7 +14,7 @@ def issue_bundle(user):
     if response.status_code == 200:
         return response.json()
     print(response.json())
-    return False
+    return None
 
 def create_account_holder(request):
     '''
@@ -96,3 +95,18 @@ def create_account_holder(request):
     print(Dob.split('-'), response.json())
     return False
 
+
+def fetch_account_details_from_mail(mail):
+    url = f'{base_url}/ifi/{ifid}/individualByVector/e/{mail}'
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
+
+def get_account_transactions(account_id, page_size, page_number):
+    url = f'{base_url}/ifi/{ifid}/accounts/{account_id}/transactions?pageSize={page_size}&pageNumber={page_number}'
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        return response.json()
+    return None

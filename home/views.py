@@ -6,12 +6,11 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.functional import LazyObject
-from django.utils.datastructures import MultiValueDictKeyError
 from .models import UserDetail, SavedAccount
 
 import requests, json
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
-from .zeta_utils import create_account_holder, issue_bundle
+from .zeta_utils import create_account_holder, issue_bundle, fetch_account_details_from_mail
 
 # Create your views here.
 
@@ -129,20 +128,32 @@ def createaccount(request):
 
     return render(request, 'createacc.html')
 
+
 def accounts(request):
     if request.method == 'POST':
         try:
-            name=request.POST['accholder']
-            username= request.POST['accno']
-            usr=request.user
-            inst= SavedAccount(user=usr, accHolderName=name,accUserName=username)
+            name = request.POST['accholder']
+            username = request.POST['accno']
+            usr = request.user
+            res = fetch_account_details_from_mail(username)
+            if not res:
+                messages.error(
+                    request,
+                    "Some error occoured, kindly contact customer service")
+                return redirect('accounts')
+
+            inst = SavedAccount(user=usr,
+                                accHolderName=f"{res['firstName']} {res['lastName']}",
+                                accUserName=username)
             inst.save()
-            messages.success(request,"Account Added Successfully!")
+            messages.success(request, "Account Added Successfully!")
             return redirect('accounts')
-        except:
-            messages.error(request,"Some error occoured, kindly contact customer service")
+        except ValueError:
+            messages.error(
+                request,
+                "Some error occoured, kindly contact customer service")
             return redirect('accounts')
 
-    accs= SavedAccount.objects.filter(user=request.user)
-    context={'accs':accs}            
-    return render(request,'accounts.html',context)
+    accs = SavedAccount.objects.filter(user=request.user)
+    context = {'accs': accs}
+    return render(request, 'accounts.html', context)
