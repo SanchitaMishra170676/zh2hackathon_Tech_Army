@@ -36,6 +36,12 @@
 </head>
 
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	{% if messages %}
+	{% for message in messages %}
+	  <script>swal("Hey there!","{{message}}","{{message.tags}}");</script>
+	{% endfor %}
+	{% endif %}
   <section >
     <div class="container-fluid">
       <!-- Nav Bar -->
@@ -50,15 +56,16 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="{% url 'createacc' %}"><i class="fas fa-user-plus fa-sm"></i> Add Account &nbsp</a>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log Out</a>
             </li>
+           
             <!-- <li class="nav-item">
-              <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
-            </li> -->
+            </li>  -->
           </ul>
         </div>
       </nav>
@@ -322,7 +329,7 @@
 
   <section class="d-lg-none">
     <div class="d-flex justify-content-center">
-      <button style="background-color: #1B3D81; margin: -10px; border-radius: 15px;" type="button" onclick="location.href=`{% url 'signup' %}`" class="btn btn-primary btn-lg"><i
+      <button style="background-color: #1B3D81; margin: -10px; border-radius: 15px;" type="button" onclick="location.href=`{% url 'createacc' %}`" class="btn btn-primary btn-lg"><i
         class="fas fa-user-plus fa-sm"></i> &nbsp New Payment</button>
     </div>
   </section>
