@@ -24,9 +24,19 @@ def home(request):
 
 
 def dashboard(request):
-    # details=UserDetail.objects.filter(user=request.user)
-    # print(request.user)
-    context = {'username': request.user}
+    if request.method == 'POST':
+        try:
+            Accholder= request.POST['accHolderName']
+            Amount= request.POST['amt']
+            if int(Amount)>5000:
+                messages.warning(request,"Transaction pending till trustee aprroves")
+            else:
+                messages.success(request,"Transaction Successful")
+        except ValueError:
+            messages.error(request,"Transaction Failed")
+            
+    accs= SavedAccount.objects.filter(user=request.user)
+    context = {'username': request.user, 'accs':accs}
     return render(request, 'index.html', context)
 
 
