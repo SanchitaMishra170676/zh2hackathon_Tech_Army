@@ -56,11 +56,21 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="{% url 'createacc' %}"><i class="fas fa-user-plus fa-sm"></i> Add Account &nbsp</a>
-            </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+              <a class="nav-link" href="{% url 'createacc' %}"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  style="color: #1B3D81;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome! {{username}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'logout' %}" ><i class="fas fa-sign-in-alt"></i> Log Out</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+              <!-- </div> -->
             </li>
            
             <!-- <li class="nav-item">
@@ -127,11 +137,11 @@
       <div class="col-4 col-lg-2">
         <div class="d-flex justify-content-center">
           <div class="square p-2">
-            <a href="{% url 'underprogress' %}"  style="text-decoration: none">
+            <a href="{% url 'accounts' %}"  style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-address-book" style="color: white; font-size: xx-large;"></i>
             </div>
             <div class="d-flex justify-content-center">
-              <h6 class="p-2" style="color: white; font-size: small;"> Contacts</h6>
+              <h6 class="p-2" style="color: white; font-size: small;"> Accounts</h6>
             </div>
             </a>
           </div>
@@ -241,14 +251,14 @@
       <div class="col-4 ">
         <div class="d-flex justify-content-center">
           <div class="squared p-2">
-            <a href="{% url 'underprogress' %}"  style="text-decoration: none">
+            <a href="{% url 'accounts' %}"  style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-address-book" style="color: white; font-size:80px;"></i>
             </div>
             <div class="d-flex justify-content-center">
-              <h6 class="p-2" style="color: white; font-size: xx-large;"> Contacts</h6>
+              <h6 class="p-2" style="color: white; font-size: xx-large;"> Accounts</h6>
             </div>
             <div class="d-flex justify-content-center">
-              <h6 class="p-2" style="color: white; font-size: large;"> Check the lis of added contacts</h6>
+              <h6 class="p-2" style="color: white; font-size: large;"> Save accounts for your ease</h6>
             </div>
           </a>
           </div>

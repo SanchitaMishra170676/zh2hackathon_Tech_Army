@@ -11,4 +11,5 @@ urlpatterns = [
     path('underprogress/', views.underprogress, name='underprogress'),
     path('sign-up/', views.createaccount, name='createacc'),
     path('logout/',views.logout,name='logout'),
+    path('accounts/',views.accounts,name='accounts'),
 ]

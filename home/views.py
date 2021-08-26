@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.functional import LazyObject
 from django.utils.datastructures import MultiValueDictKeyError
+from .models import UserDetail
 
 import requests, json
 
@@ -18,7 +19,10 @@ def home(request):
 #     return render(request,'login.html')
 
 def dashboard(request):
-    return render(request,'index.html')
+    # details=UserDetail.objects.filter(user=request.user)
+    # print(request.user)
+    context={'username':request.user}
+    return render(request,'index.html',context)
 
 def contact(request):
     return render(request,'contactUs.html')
@@ -56,10 +60,16 @@ def logout(request):
 def createaccount(request):
     if request.method == "POST":
         try:
+            Salutation = request.POST['salutation']
             FirstName = request.POST['first-name']
+            MiddleName = request.POST['middle-name']
             LastName = request.POST['last-name']
             Email = request.POST['email']
             Password= request.POST['password']
+            Gender = request.POST['gender']
+            Aadhar = request.POST['aadhar']
+            Email = request.POST['email']
+            Phone = request.POST['phone']
 
             res = create_account_holder(request)
             if res:
@@ -74,6 +84,9 @@ def createaccount(request):
             user = User.objects.create_user(username=Email, password=Password)
             user.first_name = FirstName
             user.last_name = LastName
+            
+            inst=UserDetail(user=user,AccountHolderId=res['individualID'],salutation= Salutation, firstName=FirstName, middleName= MiddleName,lastName=LastName,Gender=Gender, Aadhar=Aadhar,phone=Phone)
+            inst.save()
             # user.form_id = 
             
             messages.success(request,"Account Added Successfully")
@@ -149,9 +162,15 @@ def create_account_holder(request):
         "Content-type": "application/json",
         "X-Zeta-AuthToken": zeta_auth_token
     }
+
     
     # print(data, headers)
     response = requests.post(url, data=json.dumps(data), headers=headers)
     if response.status_code == 200:
         return response.json()
     return False
+
+
+
+def accounts(request):
+    return render(request,'accounts.html')

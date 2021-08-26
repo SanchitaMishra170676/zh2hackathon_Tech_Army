@@ -38,6 +38,30 @@
 			<div class="form-left">
                 <h2>Zeta Account Creation</h2>
                 <h4>Terms & Conditions</h4>
+				<div>
+                    All the details of Account Holder including PAN Number, Mobile Number, Email should be officially verified and correct.
+                    <br><br>
+                    Every Account Holder need to complete Minimal KYC to avail banking capabilities. Minimal KYC allows account holders limited access to account benefits. With minimal KYC, an Account Holder can:
+                    <ul>
+                        <li>Add money to the account</li>
+                        <li>Maintain balance up to ₹10,000 per month</li>
+                        <li>Receive refunds and money from other accounts</li>
+                        <li>Spend up to your Minimum KYC limit using any of the allowed channels like ATM, POS and e-commerce</li>
+                    </ul>
+                    <br>
+                    At the same time, a minimal KYC Account Holder can not:
+                    <ul>
+                        <li>Do P2P transfers</li>
+                        <li>Transfer out money to bank account</li>
+                        <li>Withdraw funds from ATM</li>
+                    </ul>
+                    This type of KYC requires verification of the mobile number and submission of a self-declaration of name and unique ID of any Officially Valid Document (OVD) such as Passport, Driving License, and Voter ID Card.
+                    <br>
+                    <br>
+                    <input type="checkbox"> I here by agree that all the details are valid.
+                    <br>
+                    <img width="80%" src="{% static 'src/images/vectors/terms.png' %}">
+                </div>
 				</div>
 			<form class="form-detail" enctype="multipart/form-data" method="post" action = '/sign-up/' >
 				{% csrf_token %} 
