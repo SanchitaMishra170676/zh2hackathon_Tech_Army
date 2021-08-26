@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 # Create your models here.
 
 """ User Model """
 class UserDetail(models.Model):
-    user= models.ForeignKey(to=User,default= None, on_delete= models.CASCADE)
+    user= models.OneToOneField(to=User,default= None, on_delete= models.CASCADE)
     AccountHolderId= models.CharField(max_length=50)
     AccountId = models.CharField(max_length=50,null=True)
     salutation= models.CharField(max_length=5)
@@ -20,7 +21,12 @@ class UserDetail(models.Model):
     def __str__(self):
         return self.firstName +" " +self.lastName
 
+class SavedAccount(models.Model):
+    user= ForeignKey(to=User,default= None, on_delete= models.CASCADE)
+    accHolderName = models.CharField(max_length=50)
+    accUserName=models.CharField(max_length=50)
 
-
+    def __str__(self):
+        return self.accHolderName
 
 

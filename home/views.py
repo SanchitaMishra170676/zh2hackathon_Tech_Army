@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.functional import LazyObject
 from django.utils.datastructures import MultiValueDictKeyError
-from .models import UserDetail
+from .models import UserDetail, SavedAccount
 
 import requests, json
 
@@ -173,4 +173,19 @@ def create_account_holder(request):
 
 
 def accounts(request):
-    return render(request,'accounts.html')
+    if request.method == 'POST':
+        try:
+            name=request.POST['accholder']
+            username= request.POST['accno']
+            usr=request.user
+            inst= SavedAccount(user=usr, accHolderName=name,accUserName=username)
+            inst.save()
+            messages.success(request,"Account Added Successfully!")
+            return redirect('accounts')
+        except:
+            messages.error(request,"Some error occoured, kindly contact customer service")
+            return redirect('accounts')
+
+    accs= SavedAccount.objects.filter(user=request.user)
+    context={'accs':accs}            
+    return render(request,'accounts.html',context)
