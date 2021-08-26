@@ -38,6 +38,13 @@
 
 <body style="margin: 0; padding:0; box-sizing:border-box">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	{% if messages %}
+	{% for message in messages %}
+	  <script>swal("{{message}}","","{{message.tags}}");</script>
+	{% endfor %}
+	{% endif %}
+
     <div class="col-12 col-sm-4">
         <img class="img-fluid" style="width: 250px; height:100px;" src="{% static 'src/images/kawach-nav.png' %}" />
     </div>
@@ -53,18 +60,18 @@
         <div class="col-12 col-sm-6">
             
             <h2 class="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Login</h2>
-            <form class="" action="/dashboard/">
-
+            <form class="" enctype="multipart/form-data" method="post" action="/login/">
+                {% csrf_token %} 
                 <div class="">
-                    <input style="color: #1B3D81;" id="Email" type="text" class="validate" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" >
+                    <input style="color: #1B3D81;" id="Email" name="username" type="text" required class="validate" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" >
                     <label style="color: #1B3D81;;" for="Email"><i class="fas fa-envelope"></i> Email id</label>
                 </div>
                 <div class="">
-                    <input id="password" type="password" class="validate" >
-                    <label style="color: #1B3D81;;" for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input id="password" type="password" name="password" class="validate" required>
+                    <label style="color: #1B3D81;" for="password"><i class="fas fa-lock"></i> Password</label>
                 </div>
                 <button type="submit" style=" background-color: #1B3D81; color: white; " class="btn mb-2 ml-2">Sign in</button>
-                <br><a class="p-2" style="color: #1B3D81;" href="sign-up/">Don't have an account? Create one.</a>
+                <br><a class="p-2" style="color: #1B3D81;" href="/sign-up/">Don't have an account? Create one.</a>
             </form>
             <!-- <p class="mt-2 ml-2" style="color:#1B3D81;"><a href="">Already have an account?</a></p> -->
 
