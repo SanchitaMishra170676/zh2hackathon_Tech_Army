@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PayEasy-Create Account</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'src/login.css' %}">
+
+</head>
+
+<body style="margin: 0; padding:0; box-sizing:border-box">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12">
+                <p class="h1">Welcome to</p>
+            </div> -->
+        <div class="col-12 col-sm-4">
+            <img class="img-fluid" src="{% static 'src/images/logo.png' %}" />
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-12 col-sm-6 center">
+            <img class="img-fluid effect-3d-1 rounded" style="margin:0 auto; width: 100% \9; max-height:747px"
+                src="{% static 'src/images/vectors/loginVector.jpg' %}" alt="">
+        </div>
+        <div class="col-12 col-sm-6">
+            <h2 class="form-title">Sign up</h2>
+            <form class="" action="profile.html">
+                <div class="input-group col">
+                    <input id="UserName" type="text" class="validate" minlength="2" required>
+                    <label for="UserName"><i class="fas fa-user"></i> Username</label>
+                </div>
+                <div class="input-group col">
+                    <input id="Email" type="email" class="validate" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+                    <label for="Email"><i class="fas fa-envelope"></i> Email id</label>
+                </div>
+                <div class="input-group col">
+                    <input id="password" type="password" class="validate" required>
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                </div>
+                <button type="submit" class="btn btn-primary ml-2 mt-2">Sign up</button>
+            </form>
+
+            <p class="mt-2 ml-2"><a href="">Already have an account?</a></p>
+            <!-- <a href="">Already have an account?</a> -->
+        </div>
+    </div>
+    <!-- <div class="flex-container">
+        <div class="vector">
+            <img src="{% static 'src/images/vectors/loginVector.jpg' %}" alt="">
+        </div>
+        <div class="form-container">
+            <h2 class="form-title">Create an account</h2>
+            <form class="" action="profile.html">
+                <div class="input-field col s6">
+                    <input id="UserName" type="text" class="validate" minlength="2" required>
+                    <label for="UserName"><i class="fas fa-user"></i> Username</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="Email" type="text" class="validate" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+                    <label for="Email"><i class="fas fa-envelope"></i> Email id</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="password" type="password" name="password" class="validate" minlength="8" required>
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                </div>
+                <button type="submit" class="">Sign up</button>
+            </form>
+            <a href="">Already have an account?</a>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

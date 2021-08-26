@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+       
+    <title>PayEasy-Contact us</title> 
+    <!-- bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+   
+
+    <link rel="stylesheet" href="{% static 'src/contactus-form.css' %}">
+</head>
+<body>
+        <h1>PayEasy</h1>
+        <div class="container">  
+            <form id="contact" action="" method="post">
+              <h3>Get in touch</h3>
+            
+              <fieldset>
+                <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Email Address" type="email" tabindex="2" required>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+              </fieldset>
+              <fieldset>
+                <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+              </fieldset>
+              <fieldset>
+                <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+              </fieldset>
+              <fieldset>
+                <button name="submit" type="submit"   onclick="location.href ='index.html'" id="contact-submit" data-submit="...Sending">Submit</button>
+              </fieldset>
+             
+            </form>
+          </div>
+    
+        
+    </body>
+    </html>
+   

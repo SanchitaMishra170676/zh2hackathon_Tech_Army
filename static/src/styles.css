@@ -1,0 +1,215 @@
+body{
+    margin: 0;
+}
+#title {
+    
+    height: 800px;
+    width: 100%;
+   
+}
+.container-fluid{
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
+    position: relative;
+    
+  } 
+
+.square{
+  background-image: linear-gradient(#1B3D81, #33CCFF);
+  border-radius: 15px;
+  height:70px;
+  width:70px;
+
+  margin:5px;
+}
+
+.squared{
+  background-image: linear-gradient(#1B3D81, #33CCFF);
+  border-radius: 15px;
+  height:200px;
+  width:500px;
+  margin:5px;
+}
+
+.options{
+  background-color: 	#f3f1f1;
+}
+  .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2rem;
+  }
+  
+  .nav-item {
+    padding: 0 18px 0 18px;
+    
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color:grey;
+    padding-bottom: 10px;
+  }
+
+.container-fluid img {
+    margin-top: 5%;
+    margin-right:0;
+    height: 500px;
+    width: auto;
+    float: right;  
+   
+}
+
+.catchLine{
+  position: absolute;
+  /* background-color: beige; */
+  width: auto;
+  height: auto;
+  margin: 30px;
+  padding-top: 1.5rem;
+}
+
+.catchLine h2{
+  font-family: "ubuntu";
+  font-weight:bold;
+  padding-top:1.5em;
+  padding-left: 28px;
+  font-size:57px;
+  word-wrap: break-word;
+  line-height: 1.2;
+  padding-bottom: 30px;
+}
+
+.btn {
+  margin: 5% 3% 5% 5%;
+  font-size: 20px;
+}
+
+/* features */
+
+#featuresSection {
+  background-color:#ebf2fa;
+}
+
+.features{
+  background-color:#ebf2fa;
+ height: 31.25rem;
+ padding: 70px ;
+}
+
+.features h2 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom:70px;
+  font-family: "Montserrat";
+  color: #445fea;
+}
+
+.features-description{
+  text-align: center;
+}
+
+.features h3{
+  padding-top:30px;
+  font-family: "ubuntu";
+}
+
+.brand-logos{
+  padding:10px;
+  height: auto;
+  margin: 0 auto;
+  width: auto;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  
+  /*padding: 10px;*/  
+  height: 70px;
+  /* margin:15px; */
+  border-radius:10px;
+  padding: 10px 30px;
+  
+  
+}
+
+.logo:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color:white;
+  
+}
+/* ContactUS */
+.contact{
+  height: 25rem;
+  width: 100%;
+}
+
+.contact h2{
+  text-align: center;
+  margin:1rem 0;
+  font-size:2.2rem;
+  padding-top: 20px;
+  font-family: "Montserrat";
+  color: #445fea;
+}
+
+.form-container{
+  float: left;
+  width: 50%;
+  height: 250px;   
+  text-align: center;
+}
+
+.contact p{
+  margin-top: 65px;
+  text-align: center;
+  font-family: "ubuntu";
+  font-size: 1.5rem;
+}
+
+.link-button{
+  margin-top:0;
+  margin-bottom: 0;
+  border: none;
+background: green;
+color: #ffffff !important;
+font-weight: 100;
+padding: 15px;
+text-transform: uppercase;
+border-radius: 6px;
+display: inline-block;
+transition: all 0.3s ease 0s;
+}
+
+.link-button:hover {
+  color: #404040 !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
+}
+
+.social-media{
+  float: right;
+  width: 50%;
+  height: 250px;
+  text-align: center;
+}
+
+.social-media a{
+  font-size:30px;
+  margin-left:25px;
+  margin-right: 25px;
+ 
+  
+}
+.social-media a:hover{
+  font-size: 40px;
+  border-radius: 150px;
+  text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,224 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    user-select: none;
+    background-color: #ebf2fa;
+  }
+
+.navbar {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    width: 100%;
+}
+
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+}
+  
+.nav-item {
+    padding: 0 18px 0 18px;
+    margin: 10px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color:grey;
+    padding: 10px 50px;
+  }
+
+  .fas{
+    padding: 10px 20px;
+  }
+
+  .fas:hover{
+    color:#445fea;
+}
+
+.dashboard{
+    position: absolute;
+    margin-top: 50px;
+    margin-left:120px ;
+    /* height: 87%; */
+}
+
+.dashboard p {
+    font-size:1.5rem;
+    margin-bottom: 0;
+}
+
+.sidebar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 89px ;
+ 
+    padding: 20px;
+    float: left;
+}
+
+.sidebar i{
+    padding: 10px;
+    margin: 15px;
+    color: grey;
+}
+
+/*  DASHBOARD   */
+
+.hud{
+    position: relative;
+    height: auto;
+    width: 15.5rem;
+    padding: 1.5rem;
+    background: #000046; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000046, #1cb5e0); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000046, #1cb5e0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    color: white;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+  }
+
+/* .hud:hover{    
+     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;  
+} */
+
+
+.hud p{
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.hud h1{
+    text-align: center;
+    font-size: 60px;
+    font-family: "ubuntu";
+    padding-top: 5px;
+}
+
+.hud hr{
+    color: white;
+    background-color: white;
+    margin-top: 70px;
+}
+
+.functions{
+  position: relative;
+
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: auto 20px;
+}
+
+.functions h4{
+  color: grey;
+  font-family: "ubuntu";
+}
+
+.function-btn{
+  display: inline-block;
+  text-decoration: none;
+  background-color: #445fea;
+  color: #FFF;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 25px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: .4s;
+  margin: 10px 10px;
+}
+
+.functions a{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.function-btn:hover:hover{
+    background: white;
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;  
+}
+.imt{
+    position: relative;
+    float: right;
+    height: auto;
+    width: 500px;
+    background: -webkit-linear-gradient(to right, #fc466b, #3f5efb); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc466b, #3f5efb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 5px 10px;
+    border-radius: 1.25rem;
+    padding: 20px  0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+}
+
+.imt button{
+    height: 60px;
+    width: 150px;
+    font-size: 25px;
+}
+
+.form-group{
+    padding-top:10px;
+}
+
+.imt h1{
+    text-align: center;
+    font-family: "ubuntu";
+    text-shadow: 2px 2px 5px grey;
+}
+
+.imt form{
+    padding: 50px;
+}
+
+.cards{
+    position: relative;
+    float: right;
+    background-color: red;
+    height: auto;
+    width: auto;
+    margin: 5px 10px;
+    padding: 20px  0px;
+    border-radius: 1.25rem;
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.cards h1{
+  text-align: center;
+  font-family: "ubuntu";
+  color: white;
+  text-shadow: 2px 2px 5px grey;
+}
+
+

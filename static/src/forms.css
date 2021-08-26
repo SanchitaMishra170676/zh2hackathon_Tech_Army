@@ -1,0 +1,96 @@
+body{
+    background-color:#445fea;
+}
+
+h1{
+    font-family: "montserrat";
+    color:white;
+    margin:1.875rem 0 1.25rem 11.25rem;
+    padding:10px;
+    font-size: 3.2rem;
+}
+.flex-container{
+    position: relative;
+    height:35.5rem;
+    width:75%;
+    background-color:white;
+    text-align: center;
+    margin-top: 3%;
+    border-radius:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    margin:auto;  
+}
+
+.vector{
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100%;
+    
+}
+
+.vector img{
+    /* max-width: 100%; */
+    max-height: 100%;
+    border-radius:10px;
+}
+
+.form-container{
+    position: relative;
+    float: right;
+    max-width: 50%;
+    width: 100%;
+    max-height: 100%;
+    padding: 50px;
+    text-align: center;
+}
+
+.form-title {
+    font-family:"ubuntu";
+    font-weight: lighter;
+    font-size: 2rem;
+    text-align:center;
+    margin-top:20px ;
+    
+}
+
+.form-container form {
+    padding: 10px 40px;
+}
+
+.form-container a{
+    text-align:center;
+}
+
+.form-container button {
+    border:0;
+    background-color:#44c767;
+	-webkit-border-top-left-radius:7px;
+	-moz-border-radius-topleft:7px;
+	border-top-left-radius:7px;
+	-webkit-border-top-right-radius:7px;
+	-moz-border-radius-topright:7px;
+	border-top-right-radius:7px;
+	-webkit-border-bottom-right-radius:7px;
+	-moz-border-radius-bottomright:7px;
+	border-bottom-right-radius:7px;
+	-webkit-border-bottom-left-radius:7px;
+	-moz-border-radius-bottomleft:7px;
+	border-bottom-left-radius:7px;
+    text-indent:0;
+	display:inline-block;
+	color:#ffffff;
+	font-family:"ubuntu";
+	font-size:18px;
+	font-weight:lighter;
+	font-style:normal;
+    height:52px;
+	line-height:52px;
+    width:141px;
+	text-align:center;
+}
+
+.form-container button:hover {
+	background-color:green;
+}

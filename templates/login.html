@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kawach Login</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{% static 'src/logout.css' %}"> -->
+
+</head>
+
+<body style="margin: 0; padding:0; box-sizing:border-box">
+
+    <div class="col-12 col-sm-4">
+        <img class="img-fluid" style="width: 250px; height:100px;" src="{% static 'src/images/kawach-nav.png' %}" />
+    </div>
+
+
+    <div class="container">
+        
+    <div class="row ">
+        <div class="d-none d-lg-block col-sm-6 center">
+            <img class="img-fluid " style="margin:0 auto; width: 100% ; max-height:747px" src="{% static 'src/images/vectors/loginVectorG.gif' %}"
+                alt="">
+        </div>
+        <div class="col-12 col-sm-6">
+            
+            <h2 class="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Login</h2>
+            <form class="" action="/dashboard/">
+
+                <div class="">
+                    <input style="color: #1B3D81;" id="Email" type="text" class="validate" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" >
+                    <label style="color: #1B3D81;;" for="Email"><i class="fas fa-envelope"></i> Email id</label>
+                </div>
+                <div class="">
+                    <input id="password" type="password" class="validate" >
+                    <label style="color: #1B3D81;;" for="password"><i class="fas fa-lock"></i> Password</label>
+                </div>
+                <button type="submit" style=" background-color: #1B3D81; color: white; " class="btn ml-2">Sign in</button>
+            </form>
+            <!-- <p class="mt-2 ml-2" style="color:#1B3D81;"><a href="">Already have an account?</a></p> -->
+
+            <!-- <a href="">Dont have an acount?</a> -->
+        </div>
+        <div class="d-lg-none center">
+            <img class="img-fluid " style="margin-top: -50px; width: 100% \9; max-height:747px" src="{% static 'src/images/vectors/loginVectorG.gif' %}"
+                alt="">
+        </div>
+    </div>
+    <p style="color:#1B3D81; ;">*Login will be implemented as per the requirement of API for now just click on sign in to proceed.</p>
+</div>
+
+</body>
+
+</html>
