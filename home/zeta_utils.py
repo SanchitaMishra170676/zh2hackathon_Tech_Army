@@ -1,3 +1,7 @@
+from django.utils.datastructures import MultiValueDictKeyError
+from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
+import requests, json
+
 def issue_bundle(user):
     url = 'https://fusion.preprod.zeta.in/api/v1/ifi/140793/applications/newIndividual'
     url = f'{base_url}/ifi/140793/bundles/{bundleId}/issueBundle'
@@ -91,3 +95,4 @@ def create_account_holder(request):
         return response.json()
     print(Dob.split('-'), response.json())
     return False
+
