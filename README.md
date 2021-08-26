@@ -44,3 +44,39 @@ Need to Build a secure solution that double authenticate or helps you in monitor
 - Move to the src folder `cd src`
 - Install dependencies `pip install -r requirements.txt`
 - In terminal or cmd prompt run `python manage.py runserver` and visit the URL prompted in shell.
+
+
+## Team
+<table>
+  <tr>
+    <th colspan=4>TechArmy</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="static/src/images/team/rohan_khurana.png" width=100px>
+    </td>
+    <td>
+      <img src="static/src/images/team/tushar-gupta.png" width=100px>
+    </td>
+    <td>
+      <img src="static/src/images/team/Sanchita_Mishra.png" width=100px>
+    </td>
+    <td>
+      <img src="static/src/images/team/kushagra_goel.png" width=100px>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/rohan-khurana/">Rohan Khurana
+    </td>
+    <td>
+      <a href="https://github.com/tushar5526">Tushar Gupta
+    </td>
+    <td>
+      <a href="https://github.com/SanchitaMishra170676">Sanchita Mishra
+    </td>
+    <td>
+      <a href="https://github.com/thisisKushagraGoel">Kushagra Goel
+    </td>
+  </tr>
+</table>
