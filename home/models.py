@@ -17,6 +17,8 @@ class UserDetail(models.Model):
     Aadhar = models.CharField(max_length=20)
     Email = models.CharField(max_length=255)
     phone = models.CharField(max_length=13)
+    trusteeamt = models.IntegerField(max_length=10,default=0)
+    trusteemail=models.CharField(max_length=256,null=True)
 
     def __str__(self):
         return self.firstName +" " +self.lastName
