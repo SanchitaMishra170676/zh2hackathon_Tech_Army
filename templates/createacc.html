@@ -33,6 +33,44 @@
 	{% endif %}
 
 <body class="form-v4" style="margin-top: 20px;">
+	<div class="container">
+
+	
+	  <nav class="navbar navbar-expand-lg navbar-light d-lg-none " >
+
+        <a class="navbar-brand" style="color: #445fea" href=""><img src="{% static 'src/images/kawach-nav.png' %}" style="width: 200px; height:80px;" alt=""></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button> 
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'createacc' %}"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ></a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  style="color: #1B3D81;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome! {{username}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'logout' %}" ><i class="fas fa-sign-in-alt"></i> Log Out</a>
+                <div class="dropdown-divider"></div> -->
+                <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+              <!-- </div> -->
+            <!-- </li> -->
+           
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>  -->
+          </ul>
+        </div>
+      </nav>
+	</div>
+
 	<div class="page-content">
 		<div class="form-v4-content">
 			<div class="form-left">

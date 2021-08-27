@@ -57,15 +57,39 @@
         border-bottom: 0.5px solid #ddd;
         min-width: 330px;
       }
+
+      #myInput1 {
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 10px 20px 12px 45px;
+        border: none;
+        border-bottom: 0.5px solid #ddd;
+        min-width: 330px;
+      }
       
       #myInput:focus {outline: 3px solid white;}
+      #myInput1:focus {outline: 3px solid white;}
       
       .dropdown {
         position: relative;
         display: inline-block;
       }
       
+      .dropdown1 {
+        position: relative;
+        display: inline-block;
+      }
       .dropdown-content {
+        
+        /* position: absolute; */
+        background-color: white;
+        min-width: 230px;
+        height:230px;
+        overflow: scroll;
+        border: 1px solid #ddd;
+        z-index: 1;
+      }
+      .dropdown1-content {
         
         /* position: absolute; */
         background-color: white;
@@ -82,8 +106,14 @@
         text-decoration: none;
         display: block;
       }
-      
+      .dropdown1-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
       .dropdown a:hover {background-color: #ddd;}
+      .dropdown1 a:hover {background-color: #ddd;}
       
       .show {display: block;}
       </style>
@@ -393,7 +423,7 @@
 
   <section class="d-lg-none">
     <div class="d-flex justify-content-center">
-      <button style="background-color: #1B3D81; margin: -10px; border-radius: 15px;" type="button" onclick="location.href=`{% url 'createacc' %}`" class="btn btn-primary btn-lg"><i
+      <button style="background-color: #1B3D81; margin: -10px; border-radius: 15px;" type="button" data-toggle="modal" data-target="#exampleModalCenter"  class="btn btn-primary btn-lg"><i
         class="fas fa-user-plus fa-sm"></i> &nbsp New Payment</button>
     </div>
   </section>
@@ -487,10 +517,10 @@
             <h6 class="col-3" style="align-self: center;  color: #1B3D81;" for="">Amount</h6>
             <input class="form-control" type="number" name="amt" id="">
           </div>
-          <div id="myDropdown" class="dropdown-content">
-          <input  type="text" name="accHolderName"  placeholder="Search Account" id="myInput" onkeyup="filterFunction()">
+          <div id="myDropdown1" class="dropdown-content">
+          <input  type="text" name="accHolderName"  placeholder="Search Account" id="myInput1" onkeyup="filterFunction1()">
           {% for acc in accs %}
-          <a style="cursor:pointer; color: #1B3D81;"  id="nameclick">{{acc.accHolderName}}-{{acc.accUserName}}</a>
+          <a style="cursor:pointer; color: #1B3D81;"  id="nameclick1">{{acc.accHolderName}}-{{acc.accUserName}}</a>
           {% endfor %}
           </div>
           <div class="d-flex justify-content-center ">
@@ -568,6 +598,34 @@ function cpyfun(item){
         })
 }
 </script>
+
+<script>
+  function filterFunction1() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput1");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown1");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+nameclick=document.querySelectorAll("#nameclick1")
+ip=document.querySelector("#myInput1")
+nameclick.forEach(cpyfun);
+function cpyfun(item){
+  item.addEventListener('click', function(){
+            myInput.value=item.innerHTML;
+        })
+}
+</script>
+
 </body>
 
 </html>
