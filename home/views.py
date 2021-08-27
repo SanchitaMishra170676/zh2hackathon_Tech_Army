@@ -156,3 +156,7 @@ def accounts(request):
     accs= SavedAccount.objects.filter(user=request.user)
     context={'accs':accs}            
     return render(request,'accounts.html',context)
+
+
+def passbook(request):
+    return render (request,'passbook.html')
