@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawach | Create Account</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kawach | Create Account</title>
 </head>
 
 {% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'src/styles.css' %}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">  
-  <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+  integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'src/styles.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <!-- Jquery -->
-	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'src/createacc.css' %}"/>	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<!-- Jquery -->
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'src/createacc.css' %}" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-	
+
 
 <body class="form-v4" style="margin-top: 20px;">
 
-    {% if messages %}
-	{% for message in messages %}
-	  <script>swal("{{message}}","","{{message.tags}}");</script>
-	{% endfor %}
-	{% endif %}
+  {% if messages %}
+  {% for message in messages %}
+  <script>
+    swal("{{message}}", "", "{{message.tags}}");
+  </script>
+  {% endfor %}
+  {% endif %}
 
-    <div class="">
-        <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="">
+    <nav class="navbar navbar-expand-lg navbar-light">
 
-            <a class="navbar-brand" style="color: #445fea" href=""><img src="{% static 'src/images/kawach-nav.png' %}" style="width: 200px; height:80px;" alt=""></a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-              <span class="navbar-toggler-icon"></span>
-            </button> 
-    
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav ml-auto">
-                <!-- <li class="nav-item">
+      <a class="navbar-brand" style="color: #445fea" href=""><img src="{% static 'src/images/kawach-nav.png' %}"
+          style="width: 200px; height:80px;" alt=""></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="nav-item">
                   <a class="nav-link" href="{% url 'createacc' %}"><i class="fas fa-user-plus fa-sm"></i> Add Account &nbsp</a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-home"></i></i> Dashboard</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i> Log Out</a>
-                </li>
-                
-               
-                <!-- <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-home"></i></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+          </li>
+
+
+          <!-- <li class="nav-item">
                   <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>  -->
-              </ul>
-            </div>
-          </nav>
-    </div>
-    <br>
-	<div class="page-content" >
-		<div class="form-v4-content" style="
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <br>
+  <div class="page-content">
+    <div class="form-v4-content" style="
         box-shadow: 0px 0px 0px 0px !important ;
 	-o-box-shadow: 0px 0px 0px 0px !important;
 	-ms-box-shadow:0px 0px 0px 0px  !important;
@@ -103,128 +107,131 @@
 	-moz-align-items: left !important;
 	-webkit-align-items: left !important;
         ">
-			<!-- <div class="form-left">
+      <!-- <div class="form-left">
                 <h2>Zeta Account Creation</h2>
                 <h4>Terms & Conditions</h4>
 				</div> -->
-			<form class="form-detail" enctype="multipart/form-data" method="post" action = '/sign-up/' >
-				{% csrf_token %} 
-				<h2 style="margin-bottom: 15px;">PASSBOOK</h2>
-                <div class="d-flex justify-content-end">
-                    <h4 style="color: #1B3D81;"> <b> Current Balance: Rs.10000/- &nbsp &nbsp &nbsp &nbsp </b> </h4>
-                </div>
-                    <p style="color: #1B3D81;"><i class="fas fa-file-alt"></i> Transaction History</p>
-               
-              <br>
-              <!-- loop starts here -->
-              
-              <div class="row">
-                  <div class="d-none d-lg-block col-2 col-lg-1 d-flex justify-content-center">
-                    <img src="{% static 'src/images/profile-blank.png' %}" style="width: 60%; border-radius: 25px; " alt="">
-                  </div>
-                  <div class="d-lg-none col-2 col-lg-1 d-flex justify-content-center">
-                    <img src="{% static 'src/images/profile-blank.png' %}" style="width: 160%; border-radius: 25px; " alt="">
-                  </div>
-                  <div class="d-none d-lg-block col-lg-5">
-                    <div>
-                        <h5 style="color: #1B3D81; margin-bottom: 0px;"><b> Sanchita Mishra </b></h5>
-                        <b style="color: gray;"> sanchita@170676@gmail.com</b>
-                    </div>
-                  </div>
-                  <div class="d-lg-none col-10 col-lg-5">
-                    <div>
-                        <b style="color: #1B3D81; margin-bottom: 0px;">Sanchita Mishra</b>
-                        <sm style="color: gray;"> sanchita170676@gmail.com</sm>
-                       
-                    </div>
-                  </div>
-                  <div class="d-none d-lg-block col-3">
-                    <h5 style="color: #1B3D81; margin-bottom: 0px;">Rs.7000/-</h5>
-                    <b style="color: gray;">Debited</b>
-                  </div>
-                  <div class="d-none d-lg-block col-3">
-                    <h6 style="color: #1B3D81; margin-bottom: 0px;">28/09/2001 </h6>
-                    <h6 style="color: #1B3D81; margin-bottom: 0px;"> 24:00</h6>
-                  </div>
+      <form class="form-detail" enctype="multipart/form-data" method="post" action='/sign-up/'>
+        {% csrf_token %}
+        <h2 style="margin-bottom: 15px;">PASSBOOK</h2>
+        <div class="d-flex justify-content-end">
+          <h4 style="color: #1B3D81;"> <b> Current Balance: Rs.10000/- &nbsp &nbsp &nbsp &nbsp </b> </h4>
+        </div>
+        <p style="color: #1B3D81;"><i class="fas fa-file-alt"></i> Transaction History</p>
+
+        <br>
+        <!-- loop starts here -->
+        {% for transaction in transactions.accountTransactionList %}
+
+        <div class="row">
+          <div class="d-none d-lg-block col-2 col-lg-1 d-flex justify-content-center">
+            <img src="{% static 'src/images/profile-blank.png' %}" style="width: 60%; border-radius: 25px; " alt="">
+          </div>
+          <div class="d-lg-none col-2 col-lg-1 d-flex justify-content-center">
+            <img src="{% static 'src/images/profile-blank.png' %}" style="width: 160%; border-radius: 25px; " alt="">
+          </div>
+          <div class="d-none d-lg-block col-lg-5">
+            <div>
+              <h5 style="color: #1B3D81; margin-bottom: 0px;"><b> {{transaction.name}} </b></h5>
+              <b style="color: gray;"> {{transaction.email}}</b>
+            </div>
+          </div>
+          <div class="d-lg-none col-10 col-lg-5">
+            <div>
+              <b style="color: #1B3D81; margin-bottom: 0px;">{{transaction.name}} </b>
+              <sm style="color: gray;"> {{transaction.email}} </sm>
+
+            </div>
+          </div>
+          <div class="d-none d-lg-block col-3">
+            <h5 style="color: #1B3D81; margin-bottom: 0px;">Rs.{{transaction.amount}}/-</h5>
+            <b style="color: gray;">{{transaction.recordType}}</b>
+          </div>
+          <div class="d-none d-lg-block col-3">
+            <h6 style="color: #1B3D81; margin-bottom: 0px;">{{transaction.date}}</h6>
+            <h6 style="color: #1B3D81; margin-bottom: 0px;"> {{transaction.time}}</h6>
+          </div>
+        </div>
+        <div class="row d-lg-none">
+          <div class="col-2"></div>
+          <div class="col-10">
+            <div class="row">
+              <div class="col-6">
+                <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;">Rs.{{transaction.amount}}/-</sm>
+                <sm style="font-size: x-small; color: gray;">{{transaction.recordType}}</smb>
               </div>
-              <div class="row d-lg-none">
-                <div class="col-2"></div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-6">
-                            <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;">Rs.7000/-</sm>
-                            <sm style="font-size: x-small; color: gray;">Debited</smb>
-                        </div>
-                        <div class="col-6">
-                            <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;">28/09/2001 </sm>
-                             <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;"> 24:00</sm>
-                        </div>
-                    </div>
-                </div>
+              <div class="col-6">
+                <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;">{{transaction.date}} </sm>
+                <sm style="font-size: x-small; color: #1B3D81; margin-bottom: 0px;">{{transaction.time}}</sm>
               </div>
-              
-              <hr style="margin-bottom: -10px;">
-              <br>
-              <!-- loop neeche end krna -->
-              
-              
+            </div>
+          </div>
+        </div>
 
-			</form>
-		</div>
-	</div>
+        <hr style="margin-bottom: -10px;">
+        <br>
+        {% endfor %}
+
+        <!-- loop neeche end krna -->
+      </form>
+    </div>
+  </div>
 
 
-    <!-- <div class="d-none d-lg-block">
+  <!-- <div class="d-none d-lg-block">
         <img src="{% static 'src/images/vectors/scan.gif' %}" style="position: fixed; bottom: 30px; right: 30px;" alt="">
     </div> -->
 
 
 
-     <!--------------------------MODALS---------------------------->
+  <!--------------------------MODALS---------------------------->
 
   <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLongTitle"  style="color: #1B3D81;">Add new Account</h4>
+          <h4 class="modal-title" id="exampleModalLongTitle" style="color: #1B3D81;">Add new Account</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body container">
-          <form class="form-detail" enctype="multipart/form-data" method="post" action = '/accounts/'>
+          <form class="form-detail" enctype="multipart/form-data" method="post" action='/accounts/'>
             {% csrf_token %}
             <div class="container">
-                <div class="form-row">
-                    <p  style="color: #1B3D81;" for="your_email">Account Holder's Name*</p>
-                    <input type="text" name="accholder" id="your_email" class="form-control" required>
-                </div>
-                <div class="form-row">
-                    <p  style="color: #1B3D81;" for="your_email">Linked Account Email*</p>
-                    <input type="text" name="accno" id="your_email" class="form-control" required>
-                </div>
-                <div class="form-row">
-                    <button style="background-color: #1B3D81; color: white;" type="submit" class="btn form-control">Add Account</button>
+              <div class="form-row">
+                <p style="color: #1B3D81;" for="your_email">Account Holder's Name*</p>
+                <input type="text" name="accholder" id="your_email" class="form-control" required>
+              </div>
+              <div class="form-row">
+                <p style="color: #1B3D81;" for="your_email">Linked Account Email*</p>
+                <input type="text" name="accno" id="your_email" class="form-control" required>
+              </div>
+              <div class="form-row">
+                <button style="background-color: #1B3D81; color: white;" type="submit" class="btn form-control">Add
+                  Account</button>
 
-                </div>
-                    </div>
-        </form>
-          
+              </div>
+            </div>
+          </form>
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn " style="background-color: #1B3D81; color: white;"  data-dismiss="modal">Close</button>
+          <button type="button" class="btn " style="background-color: #1B3D81; color: white;"
+            data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
 
-	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 

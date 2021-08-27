@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.contrib.auth import logout as auth_logout, login as auth_login
 from django.http.request import validate_host
 from django.shortcuts import render, redirect, HttpResponse, Http404
@@ -7,12 +8,12 @@ from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.functional import LazyObject
 from .models import UserDetail, SavedAccount
-from django.core.mail import send_mail,EmailMessage
+from django.core.mail import send_mail, EmailMessage
 from django.core import mail as m
 
 import requests, json
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
-from .zeta_utils import create_account_holder, issue_bundle, fetch_account_details_from_mail, make_transaction
+from .zeta_utils import create_account_holder, get_account_transactions, issue_bundle, fetch_account_details_from_mail, make_transaction
 
 # Create your views here.
 
@@ -34,14 +35,17 @@ def dashboard(request):
             # TODO: Get the limit from Database
             if Amount > 5:
                 connection = m.get_connection()
-                Em="sanchitamishra170676@gmail.com"
+                Em = "sanchitamishra170676@gmail.com"
                 connection.open()
-                message= render_to_string('email.html',{})
-                email_ver =  EmailMessage("Kawach Confirmation",message,to=[Em])
+                message = render_to_string('email.html', {})
+                email_ver = EmailMessage("Kawach Confirmation",
+                                         message,
+                                         to=[Em])
                 email_ver.content_subtype = 'html'
                 email_ver.send()
                 connection.close()
-                messages.warning(request,"Transaction pending till trustee aprroves")
+                messages.warning(request,
+                                 "Transaction pending till trustee aprroves")
             else:
                 mail = Accholder.split('-')[1]
                 credit_accountID = UserDetail.objects.get(Email=mail).AccountId
@@ -190,9 +194,21 @@ def accounts(request):
                 "Some error occoured, kindly contact customer service")
             return redirect('accounts')
 
-    accs= SavedAccount.objects.filter(user=request.user)
-    context={'accs':accs}            
-    return render(request,'accounts.html',context)
+    accs = SavedAccount.objects.filter(user=request.user)
+    context = {'accs': accs}
+    return render(request, 'accounts.html', context)
+
 
 def passbook(request):
-    return render (request,'passbook.html')
+    userObj = UserDetail.objects.get(Email=request.user)
+    accountID = userObj.AccountId
+    res = get_account_transactions(accountID, 20, 1)
+    for transaction in res['accountTransactionList']:
+        transaction['email'] = str(request.user)
+        transaction['name'] = userObj.firstName + ' ' + userObj.lastName
+        transaction['timestamp'] = str(
+            datetime.fromtimestamp(int(str(transaction['timestamp'])[0:10])))
+        transaction['date'] = transaction['timestamp'].split(' ')[0]
+        transaction['time'] = transaction['timestamp'].split(' ')[1]
+    print(res)
+    return render(request, 'passbook.html', {'transactions': res})
