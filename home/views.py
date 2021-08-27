@@ -10,7 +10,7 @@ from .models import UserDetail, SavedAccount
 
 import requests, json
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
-from .zeta_utils import create_account_holder, issue_bundle, fetch_account_details_from_mail
+from .zeta_utils import create_account_holder, issue_bundle, fetch_account_details_from_mail, make_transaction
 
 # Create your views here.
 
@@ -26,17 +26,30 @@ def home(request):
 def dashboard(request):
     if request.method == 'POST':
         try:
-            Accholder= request.POST['accHolderName']
-            Amount= request.POST['amt']
-            if int(Amount)>5000:
-                messages.warning(request,"Transaction pending till trustee aprroves")
+            Accholder = request.POST['accHolderName']
+            Amount = int(request.POST['amt'])
+            print(Accholder, Amount)
+            # TODO: Get the limit from Database
+            if Amount > 5000:
+                messages.warning(request,
+                                    "Transaction pending till trustee aprroves")
             else:
-                messages.success(request,"Transaction Successful")
-        except ValueError:
-            messages.error(request,"Transaction Failed")
-            
-    accs= SavedAccount.objects.filter(user=request.user)
-    context = {'username': request.user, 'accs':accs}
+                mail = Accholder.split('-')[1]
+                credit_accountID = UserDetail.objects.get(Email=mail).AccountId
+                debit_accountID = UserDetail.objects.get(
+                    user=request.user).AccountId
+                print(mail, credit_accountID, debit_accountID)
+                if make_transaction(credit_accountID, debit_accountID, Amount):
+                    messages.success(request, "Transaction Successful")
+                else:
+                    messages.error(request, "Transaction Failed")
+                    return redirect('dashboard')
+        except ValueError as v:
+            print(v)
+            messages.error(request, "Transaction Failed")
+            return redirect('dashboard')
+    accs = SavedAccount.objects.filter(user=request.user)
+    context = {'username': request.user, 'accs': accs}
     return render(request, 'index.html', context)
 
 
@@ -123,7 +136,10 @@ def createaccount(request):
                     "Can not create account, Kindly reach out to us on customer services."
                 )
                 return redirect('login')
-
+            # Put some default money
+            transaction_res = make_transaction(inst.AccountId,
+                                               fundingAccountId, 100)
+            print(transaction_res)
             inst.save()
 
             messages.success(request, "Account Added Successfully")
@@ -152,9 +168,10 @@ def accounts(request):
                     "Some error occoured, kindly contact customer service")
                 return redirect('accounts')
 
-            inst = SavedAccount(user=usr,
-                                accHolderName=f"{res['firstName']} {res['lastName']}",
-                                accUserName=username)
+            inst = SavedAccount(
+                user=usr,
+                accHolderName=f"{res['firstName']} {res['lastName']}",
+                accUserName=username)
             inst.save()
             messages.success(request, "Account Added Successfully!")
             return redirect('accounts')

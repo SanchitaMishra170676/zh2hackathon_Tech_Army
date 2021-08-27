@@ -1,6 +1,9 @@
 from django.utils.datastructures import MultiValueDictKeyError
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
 import requests, json
+from datetime import date, datetime
+import hashlib
+
 
 def issue_bundle(user):
     url = f'{base_url}/ifi/140793/bundles/{bundleId}/issueBundle'
@@ -15,6 +18,7 @@ def issue_bundle(user):
         return response.json()
     print(response.json())
     return None
+
 
 def create_account_holder(request):
     '''
@@ -92,7 +96,7 @@ def create_account_holder(request):
     response = requests.post(url, data=json.dumps(data), headers=headers)
     if response.status_code == 200:
         return response.json()
-    print(Dob.split('-'), response.json())
+    print(response.json())
     return False
 
 
@@ -102,11 +106,42 @@ def fetch_account_details_from_mail(mail):
     if response.status_code == 200:
         return response.json()
     else:
+        print(response.json())
         return None
+
 
 def get_account_transactions(account_id, page_size, page_number):
     url = f'{base_url}/ifi/{ifid}/accounts/{account_id}/transactions?pageSize={page_size}&pageNumber={page_number}'
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         return response.json()
+    print(response.json())
+    return None
+
+
+def make_transaction(credit_account_id, debit_account_id, amount):
+    h = hashlib.sha3_512()  # Python 3.6+
+    h.update(
+        bytes(
+            credit_account_id + str(datetime.now()) + debit_account_id +
+            str(amount), 'utf-8'))
+    request_id = h.hexdigest()
+    url = f'{base_url}/ifi/{ifid}/transfers'
+    data = {
+        "requestID": request_id,
+        "amount": {
+            "currency": "INR",
+            "amount": amount
+        },
+        "transferCode": "ATLAS_P2M_AUTH",
+        "creditAccountID": credit_account_id,
+        "debitAccountID": debit_account_id,
+        "transferTime": 5000,
+        "remarks": "Fund Account Holders account",
+        "attributes": {}
+    }
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    if response.status_code == 200:
+        return response.json()
+    print(response.json())
     return None
