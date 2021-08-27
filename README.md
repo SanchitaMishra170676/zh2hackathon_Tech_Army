@@ -7,8 +7,8 @@
 ---
 
 - [Video Link](https://youtu.be/6Ez4xkQ7Pfw)
-- [PPT LINK](https://kietechnology-my.sharepoint.com/:p:/g/personal/rohan_1822cs1112_kiet_edu/EeeGW3Cziz1IoyDb8-wM9LYBoOGDDLWcDwcRFC-Gx67uWg?e=6D7w2t)
-- [DEMO link]()
+- [PPT Link](https://kietechnology-my.sharepoint.com/:p:/g/personal/rohan_1822cs1112_kiet_edu/EeeGW3Cziz1IoyDb8-wM9LYBoOGDDLWcDwcRFC-Gx67uWg?e=6D7w2t)
+- [DEMO Link](http://kawachtecharmy.pythonanywhere.com/)
 
 ---
 
