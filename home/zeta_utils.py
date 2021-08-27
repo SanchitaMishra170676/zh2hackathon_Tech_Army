@@ -1,8 +1,12 @@
 from django.utils.datastructures import MultiValueDictKeyError
-from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
+from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId, secret_key
 import requests, json
 from datetime import date, datetime
 import hashlib
+from django.core.mail import send_mail, EmailMessage
+from django.core import mail as m
+from django.template.loader import render_to_string
+import jwt
 
 
 def issue_bundle(user):
@@ -145,3 +149,43 @@ def make_transaction(credit_account_id, debit_account_id, amount):
         return response.json()
     print(response.json())
     return None
+
+
+def mail_transaction_message(credit_accountID, debit_accountID, amount,
+                             creditemail, debitemail):
+    token = jwt.encode(
+        {
+            'credit_accountID': credit_accountID,
+            'debit_accountID': debit_accountID,
+            "amount": amount
+        },
+        secret_key,
+        algorithm='HS256')
+    print(token)
+    url = f'http://127.0.0.1:8000/approve_payment/{token}'
+    message = render_to_string(
+    'email.html', {
+        "creditEmail": creditemail,
+        "debitEmail": debitemail,
+        "amount": amount,
+        "url": url
+    })
+    print(message)
+    print(url)
+    # connection = m.get_connection()
+    # Em = "codingid6@gmail.com"
+    # connection.open()
+
+    # email_ver = EmailMessage("Kawach Confirmation", message, to=[Em])
+    # email_ver.content_subtype = 'html'
+    # email_ver.send()
+    # connection.close()
+
+
+def verify_transaction_token(token):
+    try:
+        res = jwt.decode(token, secret_key, algorithms=['HS256'])
+        return res
+    except jwt.exceptions.InvalidSignatureError as e:
+        print(e)
+        return None

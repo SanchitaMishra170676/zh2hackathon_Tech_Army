@@ -7,3 +7,4 @@ headers = {
 }
 fundingAccountId = "a77f26b0-14ce-47e0-8424-92775b83061f"
 bundleId = 'e07cbc3c-85b3-4251-8c9e-cc9ac2af6b5c'
+secret_key = 'kawach-10101'

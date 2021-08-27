@@ -13,4 +13,5 @@ urlpatterns = [
     path('logout/',views.logout,name='logout'),
     path('accounts/',views.accounts,name='accounts'),
     path('passbook/',views.passbook,name='passbook'),
+    path('approve_payment/<token>/',views.approve_payment,name='approve_payment'),
 ]

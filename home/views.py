@@ -13,7 +13,7 @@ from django.core import mail as m
 
 import requests, json
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
-from .zeta_utils import create_account_holder, get_account_transactions, issue_bundle, fetch_account_details_from_mail, make_transaction
+from .zeta_utils import create_account_holder, get_account_transactions, issue_bundle, fetch_account_details_from_mail, make_transaction, verify_transaction_token, mail_transaction_message
 
 # Create your views here.
 
@@ -33,24 +33,28 @@ def dashboard(request):
             Amount = int(request.POST['amt'])
             print(Accholder, Amount)
             # TODO: Get the limit from Database
+
+            mail = Accholder.split('-')[1]
+            credit_accountID = UserDetail.objects.get(Email=mail).AccountId
+            debit_accountID = UserDetail.objects.get(
+                user=request.user).AccountId
+
             if Amount > 5:
-                connection = m.get_connection()
-                Em = "sanchitamishra170676@gmail.com"
-                connection.open()
-                message = render_to_string('email.html', {})
-                email_ver = EmailMessage("Kawach Confirmation",
-                                         message,
-                                         to=[Em])
-                email_ver.content_subtype = 'html'
-                email_ver.send()
-                connection.close()
+                # connection = m.get_connection()
+                # Em = "sanchitamishra170676@gmail.com"
+                # connection.open()
+                # message = render_to_string('email.html', {})
+                # email_ver = EmailMessage("Kawach Confirmation",
+                #                          message,
+                #                          to=[Em])
+                # email_ver.content_subtype = 'html'
+                # email_ver.send()
+                # connection.close()
+                mail_transaction_message(credit_accountID, debit_accountID,
+                                         Amount, str(request.user), mail)
                 messages.warning(request,
                                  "Transaction pending till trustee aprroves")
             else:
-                mail = Accholder.split('-')[1]
-                credit_accountID = UserDetail.objects.get(Email=mail).AccountId
-                debit_accountID = UserDetail.objects.get(
-                    user=request.user).AccountId
                 print(mail, credit_accountID, debit_accountID)
                 if make_transaction(credit_accountID, debit_accountID, Amount):
                     messages.success(request, "Transaction Successful")
@@ -210,5 +214,20 @@ def passbook(request):
             datetime.fromtimestamp(int(str(transaction['timestamp'])[0:10])))
         transaction['date'] = transaction['timestamp'].split(' ')[0]
         transaction['time'] = transaction['timestamp'].split(' ')[1]
-    print(res)
     return render(request, 'passbook.html', {'transactions': res})
+
+
+def approve_payment(request, token):
+    res = verify_transaction_token(token)
+    if not res:
+        messages.error(request,
+                       "Some error occoured, kindly contact customer service")
+    credit_accountID = res["credit_accountID"]
+    debit_accountID = res["debit_accountID"]
+    Amount = res["amount"]
+    if make_transaction(credit_accountID, debit_accountID, Amount):
+        messages.success(request, "Transaction Successful")
+        return redirect('dashboard')
+    else:
+        messages.error(request, "Transaction Failed")
+        return redirect('dashboard')
