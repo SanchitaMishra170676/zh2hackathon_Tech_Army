@@ -181,6 +181,9 @@ def accounts(request):
                 "Some error occoured, kindly contact customer service")
             return redirect('accounts')
 
-    accs = SavedAccount.objects.filter(user=request.user)
-    context = {'accs': accs}
-    return render(request, 'accounts.html', context)
+    accs= SavedAccount.objects.filter(user=request.user)
+    context={'accs':accs}            
+    return render(request,'accounts.html',context)
+
+def passbook(request):
+    return render (request,'passbook.html')
