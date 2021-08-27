@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.functional import LazyObject
 from .models import UserDetail, SavedAccount
+from django.core.mail import send_mail,EmailMessage
+from django.core import mail as m
 
 import requests, json
 from .constants import base_url, ifid, headers, bundleId, ifid, fundingAccountId
@@ -30,9 +32,16 @@ def dashboard(request):
             Amount = int(request.POST['amt'])
             print(Accholder, Amount)
             # TODO: Get the limit from Database
-            if Amount > 5000:
-                messages.warning(request,
-                                    "Transaction pending till trustee aprroves")
+            if Amount > 5:
+                connection = m.get_connection()
+                Em="sanchitamishra170676@gmail.com"
+                connection.open()
+                message= render_to_string('email.html',{})
+                email_ver =  EmailMessage("Kawach Confirmation",message,to=[Em])
+                email_ver.content_subtype = 'html'
+                email_ver.send()
+                connection.close()
+                messages.warning(request,"Transaction pending till trustee aprroves")
             else:
                 mail = Accholder.split('-')[1]
                 credit_accountID = UserDetail.objects.get(Email=mail).AccountId

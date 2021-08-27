@@ -178,7 +178,7 @@
       <div class="col-4 col-lg-2">
         <div class="d-flex justify-content-center">
           <div class="square p-2">
-            <a href="{% url 'underprogress' %}"  style="text-decoration: none">
+            <a href="{% url 'passbook' %}"  style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="far fa-id-card" style="color: white; font-size: xx-large;"></i>
             </div> 
             <div class="d-flex justify-content-center">
@@ -204,7 +204,7 @@
       <div class="col-4 col-lg-2">
         <div class="d-flex justify-content-center">
           <div class="square p-2">
-            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none">
+            <a href="#" data-toggle="modal" data-target="#exampleModalCenter1" style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-mobile-alt" style="color: white; font-size: xx-large;"></i>
             </div>
             <div class="d-flex justify-content-center">
@@ -217,7 +217,7 @@
       <div class="col-4 col-lg-2">
         <div class="d-flex justify-content-center">
           <div class="square p-2">
-            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none">
+            <a href="#" data-toggle="modal" data-target="#exampleModalCenter2" style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-shield-alt" style="color: white; font-size: xx-large;"></i>
             </div>
             <div class="d-flex justify-content-center">
@@ -289,7 +289,7 @@
       <div class="col-4 ">
         <div class="d-flex justify-content-center">
           <div class="squared p-2">
-            <a href="{% url 'underprogress' %}" style="text-decoration: none">
+            <a href="{% url 'passbook' %}" style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="far fa-id-card" style="color: white; font-size: 80px;"></i>
             </div>
             <div class="d-flex justify-content-center">
@@ -321,7 +321,7 @@
       <div class="col-4 ">
         <div class="d-flex justify-content-center">
           <div class="squared p-2">
-            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none">
+            <a href="#" data-toggle="modal" data-target="#exampleModalCenter1" style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-mobile-alt" style="color: white; font-size: 80px;"></i>
             </div>
             <div class="d-flex justify-content-center">
@@ -337,7 +337,7 @@
       <div class="col-4 ">
         <div class="d-flex justify-content-center">
           <div class="squared p-2">
-            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none">
+            <a href="#" data-toggle="modal" data-target="#exampleModalCenter2" style="text-decoration: none">
             <div class="d-flex justify-content-center "><i class="fas fa-shield-alt" style="color: white; font-size: 80px;"></i>
             </div>
             <div class="d-flex justify-content-center">
@@ -468,6 +468,79 @@
   </div>
 </div>
 
+
+<!-- =========================MODAL======================= request -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"style="color: #1B3D81;" id="exampleModalLongTitle">Request a friend to Pay</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form enctype="multipart/form-data" method="post" action = '/'>
+          {% csrf_token %}
+        <div  style="height: 350px;">
+          <div class="d-flex justify-content-center " style="margin-bottom: 30px;">
+            <h6 class="col-3" style="align-self: center;  color: #1B3D81;" for="">Amount</h6>
+            <input class="form-control" type="number" name="amt" id="">
+          </div>
+          <div id="myDropdown" class="dropdown-content">
+          <input  type="text" name="accHolderName"  placeholder="Search Account" id="myInput" onkeyup="filterFunction()">
+          {% for acc in accs %}
+          <a style="cursor:pointer; color: #1B3D81;"  id="nameclick">{{acc.accHolderName}}-{{acc.accUserName}}</a>
+          {% endfor %}
+          </div>
+          <div class="d-flex justify-content-center ">
+            <button type="submit" style="background-color: #1B3D81; color: white;" class="btn form-control col-12">Request to Pay</button>
+        
+          </div>
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================MODAL======================= Trustees -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"style="color: #1B3D81;" id="exampleModalLongTitle">Add trustee for secure payments</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form enctype="multipart/form-data" method="post" action = '/'>
+          {% csrf_token %}
+        <div  style="height: 200px;">
+          <div class="d-flex justify-content-center " style="margin-bottom: 30px;">
+            <h6 class="col-3" style="align-self: center;  color: #1B3D81;" for="">Bench Amount</h6>
+            <input class="form-control" type="number" name="amt" id="">
+          </div>
+          <div class="d-flex justify-content-center " style="margin-bottom: 30px;">
+            <h6 class="col-3" style="align-self: center;  color: #1B3D81;" for="">Trustee Email</h6>
+            <input class="form-control" type="text" name="trmail" id="">
+          </div>
+          <div class="d-flex justify-content-center ">
+            <button type="submit" style="background-color: #1B3D81; color: white;" class="btn form-control col-12">Add Trustee</button>
+          </div>
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   function filterFunction() {
